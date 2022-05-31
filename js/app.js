@@ -3,17 +3,31 @@
 const inputText = document.querySelector("#inputText");
 const subButton = document.querySelector("#submit-button");
 const todoList = document.querySelector("#todo-list");
+const resetBtn = document.querySelector("#reset-button");
 
 
 /*------------------------ Event Listeners------------------------------------*/
 
 subButton.addEventListener("click", submit);
 
+resetBtn.addEventListener("click", init);
+
+todoList.addEventListener()
+
 /*-------------------------------- Functions ---------------------------------*/
 
 function submit(evt) {
-  const liElement = document.createElement("li");
-  liElement.textContent = inputText.value;
+  let input = inputText.value;
+  // only add list element if string is not empty
+  if (input) {
+    const liElement = document.createElement("li");
+    liElement.textContent = input;
+    inputText.value = "";
+    todoList.appendChild(liElement);
+  }
+}
+
+function init() {
   inputText.value = "";
-  todoList.appendChild(liElement);
+  todoList.innerHTML = "";
 }
