@@ -12,7 +12,7 @@ subButton.addEventListener("click", submit);
 
 resetBtn.addEventListener("click", init);
 
-todoList.addEventListener()
+todoList.addEventListener("click", delListItem);
 
 /*-------------------------------- Functions ---------------------------------*/
 
@@ -30,4 +30,12 @@ function submit(evt) {
 function init() {
   inputText.value = "";
   todoList.innerHTML = "";
+}
+
+function delListItem(evt) {
+  if (!todoList.hasChildNodes()) {
+    return;
+  }
+  const liElement = evt.target.closest("li");
+  liElement.remove();
 }
