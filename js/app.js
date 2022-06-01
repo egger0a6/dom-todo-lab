@@ -17,6 +17,7 @@ todoList.addEventListener("click", delListItem);
 /*-------------------------------- Functions ---------------------------------*/
 
 function submit(evt) {
+  evt.preventDefault();
   let input = inputText.value;
   // only add list element if string is not empty
   if (input) {
